@@ -1,0 +1,151 @@
+
+
+<script setup lang="ts">
+
+import { ref , defineEmits, onMounted } from 'vue';
+//import VueDatePicker from '@vuepic/vue-datepicker';
+//import '@vuepic/vue-datepicker/dist/main.css'
+import { CalendarIcon } from './@heroicons/vue/24/outline'
+import { TrashIcon } from './@heroicons/vue/24/outline'
+import { XMarkIcon } from './@heroicons/vue/24/outline'
+import { Square2StackIcon } from './@heroicons/vue/24/outline'
+import { RectangleGroupIcon  } from './@heroicons/vue/24/outline'
+import { PlusIcon  } from './@heroicons/vue/24/outline'
+import { MinusIcon  } from './@heroicons/vue/24/outline'
+import { PencilSquareIcon  } from './@heroicons/vue/24/outline'
+import { PaperAirplaneIcon  } from './@heroicons/vue/24/outline'
+import { PaperClipIcon  } from './@heroicons/vue/24/outline'
+import { ArrowPathIcon  } from './@heroicons/vue/24/outline'
+import { ArrowUturnRightIcon  } from './@heroicons/vue/24/outline'
+import { ArrowUturnLeftIcon  } from './@heroicons/vue/24/outline'
+import { ArrowsPointingOutIcon  } from './@heroicons/vue/24/outline'
+import { ArrowsPointingInIcon  } from './@heroicons/vue/24/outline'
+import {  Cog6ToothIcon  } from './@heroicons/vue/24/outline'
+
+import { EllipsisVerticalIcon } from './@heroicons/vue/24/outline'
+import { EllipsisHorizontalIcon } from './@heroicons/vue/24/outline'
+import { DocumentIcon } from './@heroicons/vue/24/outline'
+
+import ToolbarItem7  from './ToolbarItem7.vue'
+import ToolbarItemSelect7  from './ToolbarItemSelect7.vue'
+
+
+
+const props = defineProps(['toolbar_define' ]);
+
+
+const emit = defineEmits(['toolbarItemClick', 
+                           'toolbarItemToggle',
+                           'toolbarItemSelect',
+                           'toolbarItemSelectColor',
+
+			   ]);
+function toggle_handler( name , state) {
+
+      emit('toolbarItemToggle', name, state)
+
+}
+function click_handler( name ) {
+      emit('toolbarItemClick', name)
+}
+
+function select_handler( name , data) {
+      emit('toolbarItemSelect', name, data)
+}
+function select_color_handler( name , data) {
+      emit('toolbarItemSelectColor', name, data)
+}
+
+onMounted(() => {
+ // emit = defineEmits(props.handler_define)
+});
+
+
+</script>
+
+
+<template>
+<div class="toolbar-base">
+
+ <template v-for="item in props.toolbar_define" v-bind:key="item">
+     <ToolbarItem7  v-if="!item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+	                    @toolbarItemClick="click_handler"   
+	                    @toolbarItemToggle="toggle_handler"  > 
+        <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+     </ToolbarItem7>
+     <ToolbarItemSelect7  v-if="item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+	                      > 
+        <component v-bind:is="item.icon"  :name="item.name" :options="item.options" @toolbarItemSelect="select_handler" class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+     </ToolbarItemSelect7>
+</template>
+
+	</div>
+</template>
+
+<style >
+
+</style>
+
+<style scoped>
+
+.toolbar-base {
+  display:flex;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left:10px;
+  padding-right:10px;
+  /* background-color: #f5f5f5;*/
+}
+
+.icon {
+ width : 22px;
+ height : 22px;
+ cursor: pointer;
+ /*margin: 3px 2px;*/
+ margin: 3px 2px;
+ padding: 3px 4px;
+ box-shadow: 2px 2px 0px 0 lightgray;
+}
+ 
+.select  {
+ margin: 3px 2px; 
+/* margin: 3px 3px 0px 0px;*/
+/* padding: 0px 0px;*/
+  --vs-border: 0;
+  --vs-border-radius: 0px;
+  /* --vs-padding: 0px 8px;*/
+  --vs-padding: 0px 4px;
+  --vs-min-height: 28px;
+  /*
+  font-size: 15px;
+  font-family: monospace;
+  */
+  --vs-font-family: inherit;
+  box-shadow: 2px 2px 0px 0 lightgray;
+}
+
+.menu {
+  font-family: monospace;
+}
+
+.menu-option {
+  font-family: monospace;
+
+}
+
+.icon.mouse-down{
+ box-shadow: -2px -2px 0px 0px lightgray;
+}
+
+.leftspace {
+ margin-left: 20px;
+
+}
+/*
+.alignright{
+
+  margin-left: auto;
+
+}
+*/
+</style>
