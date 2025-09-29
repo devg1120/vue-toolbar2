@@ -45,6 +45,11 @@ function toggle_handler( name , state) {
 
       emit('toolbarItemToggle', name, state)
 
+      for ( let i = 0; i < radioref.value.length ; i++) {
+            console.log(radioref.value[i].radio_name());
+            //console.log(radioref.value[i]);
+      }
+
 }
 function click_handler( name ) {
       emit('toolbarItemClick', name)
@@ -61,6 +66,8 @@ onMounted(() => {
  // emit = defineEmits(props.handler_define)
 });
 
+const radioref = ref(null)
+
 
 </script>
 
@@ -74,7 +81,7 @@ onMounted(() => {
 	                    @toolbarItemToggle="toggle_handler"  > 
         <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle  }"/>
      </ToolbarItem8>
-     <ToolbarItemRadio8  v-if="!item.select && item.radio" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+     <ToolbarItemRadio8  v-if="!item.select && item.radio" ref="radioref" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                    @toolbarItemClick="click_handler"   
 	                    @toolbarItemToggle="toggle_handler" 
               :radio_name="item.radio_name"

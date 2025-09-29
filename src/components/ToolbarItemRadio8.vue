@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { ref , defineProps, defineEmits, onMounted, useTemplateRef} from 'vue';
+import { ref , defineProps, defineEmits, defineExpose, onMounted, useTemplateRef} from 'vue';
 
 const props = defineProps(['tooltip', 'name','alignright','radio_name','radio_index']);
 
@@ -17,6 +17,13 @@ function item_mouseup(e) {
 function item_toggle_switch(e, state) {
       emit('toolbarItemToggle', props.name, state)
 }
+
+function radio_name() {
+  return props.radio_name;
+
+}
+
+defineExpose({ radio_name })
 
 onMounted(() => {
      const icons = item.value.querySelectorAll(".icon")
