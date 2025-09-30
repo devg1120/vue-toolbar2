@@ -117,6 +117,9 @@ https://vue3-select-component.vercel.app/slots.html
 
 
 <style scoped>
+:deep(.control) {
+  flex-wrap: nowrap !important;
+}
 /*
 :deep(.item) {
    width:160px !important;

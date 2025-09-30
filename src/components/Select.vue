@@ -101,6 +101,9 @@ const userOptions: UserOption[] = [
 -->
 
 <style scoped>
+:deep(.control) {
+  flex-wrap: nowrap !important;
+}
 
 :deep(.menu) {
   width:160px !important;

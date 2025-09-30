@@ -127,6 +127,11 @@ https://vue3-select-component.vercel.app/slots.html
 
 
 <style scoped>
+
+:deep(.control) {
+  flex-wrap: nowrap !important;
+}
+
 :deep(.emoji) {
 
 }
