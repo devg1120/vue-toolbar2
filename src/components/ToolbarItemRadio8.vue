@@ -152,6 +152,31 @@ onMounted(() => {
    border-right:solid 3px lightgray ;
 }
 
+/*
+.underline.radio_start{
+   width :34px;
+   height :4px;
+   margin-top :-42px;
+   margin-left:2px;
+   border-top:solid 3px lightgray ;
+   border-left:solid 3px lightgray ;
+}
+.underline.radio_mid{
+   width :34px;
+   height :4px;
+   margin-top :-42px;
+   border-top:solid 3px lightgray ;
+}
+.underline.radio_end{
+   width :33px;
+   height :4px;
+   margin-top :-42px;
+   margin-right:2px;
+   border-top:solid 3px lightgray ;
+   border-right:solid 3px lightgray ;
+}
+*/
+
 .tooltip {
     position: relative;
     top: 50px;
