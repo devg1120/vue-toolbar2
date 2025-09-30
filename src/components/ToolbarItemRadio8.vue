@@ -60,8 +60,8 @@ onMounted(() => {
            //const icon = targetIcon.parentElement
 	   if (targetIcon.classList.contains("toggle")) {
               //console.log("TOGGLE DOWN");
-              //targetIcon.classList.toggle("mouse-down")
-              targetIcon.classList.add("mouse-down")
+              targetIcon.classList.toggle("mouse-down")
+              //targetIcon.classList.add("mouse-down")
 	      if (targetIcon.classList.contains("mouse-down")) {
                   item_toggle_switch(e, true);
 
@@ -130,26 +130,26 @@ onMounted(() => {
 <style scoped>
 
 .underline.radio_start{
-   width :34px;
+   width :30px;
    height :4px;
    margin-top :-3px;
    margin-left:2px;
-   border-bottom:solid 3px lightgray ;
-   border-left:solid 3px lightgray ;
+   border-bottom:solid 2px lightgray ;
+   border-left:solid 2px lightgray ;
 }
 .underline.radio_mid{
    width :34px;
    height :4px;
    margin-top :-3px;
-   border-bottom:solid 3px lightgray ;
+   border-bottom:solid 2px lightgray ;
 }
 .underline.radio_end{
    width :33px;
    height :4px;
    margin-top :-3px;
    margin-right:2px;
-   border-bottom:solid 3px lightgray ;
-   border-right:solid 3px lightgray ;
+   border-bottom:solid 2px lightgray ;
+   border-right:solid 2px lightgray ;
 }
 
 /*
