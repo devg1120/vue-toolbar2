@@ -108,6 +108,7 @@ const radioref = ref(null)
 	                    @toolbarItemRadio="radio_handler" 
               :radio_name="item.radio_name"
               :radio_index="item.radio_index"
+              :radio_class="item.radio_class"
 
 			    > 
         <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle, radio : item.radio  }"

@@ -2,7 +2,7 @@
 
 import { ref , defineProps, defineEmits, defineExpose, onMounted, useTemplateRef} from 'vue';
 
-const props = defineProps(['tooltip', 'name','alignright','radio_name','radio_index']);
+const props = defineProps(['tooltip', 'name','alignright','radio_name','radio_index', 'radio_class']);
 
 
 const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle', 'toolbarItemRadio']);
@@ -96,8 +96,21 @@ onMounted(() => {
 </script>
 
 <template >
- <div class="item" ref="item"  :class="{ alignright : props.alignright  }" >
+ <div class="item" ref="item"  :class="{ alignright : props.alignright,
+	               radio_start: props.radio_class == 'start',
+	               radio_mid: props.radio_class == 'mid',
+	               radio_end: props.radio_class == 'end'
+		       }" >
   <slot  ></slot>
+  <div class="underline"
+       :class = "{
+	               radio_start: props.radio_class == 'start',
+	               radio_mid: props.radio_class == 'mid',
+	               radio_end: props.radio_class == 'end'
+
+       }"
+
+	  ></div>
  </div>
         <div class="tooltip" >
 		<div class="tip_message">{{props.tooltip}}</div>
@@ -115,6 +128,30 @@ onMounted(() => {
 </style >
 
 <style scoped>
+
+.underline.radio_start{
+   width :34px;
+   height :4px;
+   margin-top :-3px;
+   margin-left:2px;
+   border-bottom:solid 3px lightgray ;
+   border-left:solid 3px lightgray ;
+}
+.underline.radio_mid{
+   width :34px;
+   height :4px;
+   margin-top :-3px;
+   border-bottom:solid 3px lightgray ;
+}
+.underline.radio_end{
+   width :33px;
+   height :4px;
+   margin-top :-3px;
+   margin-right:2px;
+   border-bottom:solid 3px lightgray ;
+   border-right:solid 3px lightgray ;
+}
+
 .tooltip {
     position: relative;
     top: 50px;
