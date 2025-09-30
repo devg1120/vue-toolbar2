@@ -39,16 +39,37 @@ const emit = defineEmits(['toolbarItemClick',
                            'toolbarItemToggle',
                            'toolbarItemSelect',
                            'toolbarItemSelectColor',
+			   'toolbarItemRadio',
 
 			   ]);
-function toggle_handler( name , state) {
+function toggle_handler( name , state ) {
 
       emit('toolbarItemToggle', name, state)
-
-      for ( let i = 0; i < radioref.value.length ; i++) {
+/*
+      if ( radio ) {
+        console.log("radio switch");
+        for ( let i = 0; i < radioref.value.length ; i++) {
             console.log(radioref.value[i].radio_name());
             //console.log(radioref.value[i]);
+       }
       }
+*/
+
+}
+function radio_handler( radio_name, radio_index, name , state ) {
+
+      emit('toolbarItemRadio', radio_name, radio_index,  name, state);
+
+        console.log("radio switch",radio_name, radio_index,  name, state);
+        for ( let i = 0; i < radioref.value.length ; i++) {
+            console.log(radioref.value[i].radio_name());
+	    if (radioref.value[i].radio_name() == radio_name ){
+	        if (radioref.value[i].radio_index() != radio_index ) {
+                      radioref.value[i].reset();
+                }
+	    }
+            //console.log(radioref.value[i]);
+       }
 
 }
 function click_handler( name ) {
@@ -84,6 +105,7 @@ const radioref = ref(null)
      <ToolbarItemRadio8  v-if="!item.select && item.radio" ref="radioref" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                    @toolbarItemClick="click_handler"   
 	                    @toolbarItemToggle="toggle_handler" 
+	                    @toolbarItemRadio="radio_handler" 
               :radio_name="item.radio_name"
               :radio_index="item.radio_index"
 

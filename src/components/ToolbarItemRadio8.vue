@@ -5,7 +5,7 @@ import { ref , defineProps, defineEmits, defineExpose, onMounted, useTemplateRef
 const props = defineProps(['tooltip', 'name','alignright','radio_name','radio_index']);
 
 
-const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
+const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle', 'toolbarItemRadio']);
 const item  = useTemplateRef('item')
 
 function item_mousedown(e) {
@@ -15,15 +15,28 @@ function item_mouseup(e) {
 }
 
 function item_toggle_switch(e, state) {
-      emit('toolbarItemToggle', props.name, state)
+      //emit('toolbarItemToggle', props.name, state, true)
+      emit('toolbarItemRadio', props.radio_name, props.radio_index, props.name, state )
 }
 
 function radio_name() {
   return props.radio_name;
 
 }
+function radio_index() {
+  return props.radio_index;
 
-defineExpose({ radio_name })
+}
+function reset() {
+
+     const icons = item.value.querySelectorAll(".icon")
+     icons.forEach((icon) => {
+           icon.classList.remove("mouse-down")
+
+   });
+}
+
+defineExpose({ radio_name , radio_index, reset})
 
 onMounted(() => {
      const icons = item.value.querySelectorAll(".icon")
@@ -47,7 +60,8 @@ onMounted(() => {
            //const icon = targetIcon.parentElement
 	   if (targetIcon.classList.contains("toggle")) {
               //console.log("TOGGLE DOWN");
-              targetIcon.classList.toggle("mouse-down")
+              //targetIcon.classList.toggle("mouse-down")
+              targetIcon.classList.add("mouse-down")
 	      if (targetIcon.classList.contains("mouse-down")) {
                   item_toggle_switch(e, true);
 

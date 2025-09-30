@@ -199,6 +199,33 @@ const toolbar_define = [
   toggle : true,
   tooltip : "B         OK",
 },
+
+{ icon : TrashIcon,
+  name : "TrashIcon",
+  radio : true,
+  radio_name : "yama",
+  radio_index : 1,
+  toggle : true,
+  tooltip : "B         OK",
+},
+{ icon : TrashIcon,
+  name : "TrashIcon",
+  radio : true,
+  radio_name : "yama",
+  radio_index : 2,
+  toggle : true,
+  tooltip : "B         OK",
+},
+{ icon : TrashIcon,
+  name : "TrashIcon",
+  radio : true,
+  radio_name : "yama",
+  radio_index : 3,
+  toggle : true,
+  tooltip : "B         OK",
+},
+
+
 /*
   <ArrowsPointingOutIcon class="icon" />
   <ArrowsPointingInIcon class="icon" />
@@ -236,6 +263,12 @@ function toolbarItemSelect(name, data) {
 
 function toolbarItemSelectColor(name, data) {
   console.log(" App toolbar select color:", name, data);
+}
+
+function toolbarItemRadio(radio_name, radio_index,  name, state) {
+
+  console.log(" App toolbar Radio:", radio_name, radio_index, state);
+
 }
 </script>
 
@@ -292,6 +325,7 @@ function toolbarItemSelectColor(name, data) {
 		                                 @toolbarItemClick="toolbarItemClick"  
 		                                 @toolbarItemToggle="toolbarItemToggle"  
 		                                 @toolbarItemSelect="toolbarItemSelect"  
+		                                 @toolbarItemRadio="toolbarItemRadio"
 						 />
 </div>
 </template>

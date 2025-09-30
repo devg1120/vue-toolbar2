@@ -15,7 +15,7 @@ function item_mouseup(e) {
 }
 
 function item_toggle_switch(e, state) {
-      emit('toolbarItemToggle', props.name, state)
+      emit('toolbarItemToggle', props.name, state )
 }
 
 onMounted(() => {
