@@ -109,7 +109,7 @@ https://vue3-select-component.vercel.app/slots.html
     <!--
 	    <div :style="styles[index]" class="item" >&ensp;&ensp;&ensp;</div>
 	    -->
-	    <div :style="set_style(option.value)" class="item" >&ensp;&ensp;&ensp;</div>
+	    <div :style="set_style(option.value)"  >&ensp;&ensp;&ensp;</div>
     </template>
   </VueSelect>
 </div>
@@ -152,7 +152,7 @@ https://vue3-select-component.vercel.app/slots.html
   background-color: v-bind(select_color);
   /* color: v-bind(select_color); */
   margin-top:5px;
-  margin-left:6px;
+  margin-left:2px;
   width:16px;
   height:16px;
 

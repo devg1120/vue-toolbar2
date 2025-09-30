@@ -119,7 +119,7 @@ https://vue3-select-component.vercel.app/slots.html
 	    <!--
 	    <div :style="set_style(option.value)" class="item" >&ensp;&ensp;&ensp;</div>
 	    -->
-	    <div  class="item" >{{option.label}}</div>
+	    <div  class="emoji" >{{option.label}}</div>
     </template>
   </VueSelect>
 </div>
@@ -127,6 +127,9 @@ https://vue3-select-component.vercel.app/slots.html
 
 
 <style scoped>
+:deep(.emoji) {
+
+}
 /*
 :deep(.item) {
    width:160px !important;
@@ -152,12 +155,14 @@ https://vue3-select-component.vercel.app/slots.html
   /*--vs-option-padding: 8px 12px; */
   --vs-option-padding: 4px 6px;
 }
-/*
-:deep(.single-value) {
-  padding:2px 3px;
-}
-*/
 
+:deep(.single-value) {
+  padding:2px 0px 3px 0px;
+  margin: 0px;
+  height: 22px;
+}
+
+/*
 :deep(.value-container) {
   margin-top:4px;
     margin-left:6px;
@@ -165,10 +170,25 @@ https://vue3-select-component.vercel.app/slots.html
 
 :deep(.input-container) {
   background-color: v-bind(select_color);
-  /* color: v-bind(select_color); */
 
   width:16px;
   height:16px;
 
 }
+*/
+
+:deep(.value-container) {
+  margin-top:5px;
+}
+
+:deep(.input-container) {
+  background-color: v-bind(select_color);
+  /* color: v-bind(select_color); */
+  margin-top:5px;
+  margin-left:2px;
+  width:16px;
+  height:16px;
+
+}
+
 </style>
