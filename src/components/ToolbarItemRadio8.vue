@@ -29,7 +29,7 @@ function radio_index() {
 }
 function reset() {
 
-     const icons = item.value.querySelectorAll(".icon")
+     const icons = item.value.querySelectorAll(".radioicon")
      icons.forEach((icon) => {
            icon.classList.remove("mouse-down")
 
@@ -39,7 +39,7 @@ function reset() {
 defineExpose({ radio_name , radio_index, reset})
 
 onMounted(() => {
-     const icons = item.value.querySelectorAll(".icon")
+     const icons = item.value.querySelectorAll(".radioicon")
      icons.forEach((icon) => {
         // マウスオーバーで表示する
        icon.addEventListener("mouseover", function () {

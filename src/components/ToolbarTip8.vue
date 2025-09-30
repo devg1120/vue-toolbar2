@@ -111,7 +111,7 @@ const radioref = ref(null)
               :radio_class="item.radio_class"
 
 			    > 
-        <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle, radio : item.radio  }"
+        <component v-bind:is="item.icon"  class="radioicon" :class="{ leftspace : item.leftspace, toggle : item.toggle, radio : item.radio  }"
 	/>
      </ToolbarItemRadio8>
      <ToolbarItemSelect7  v-if="item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
@@ -148,6 +148,16 @@ const radioref = ref(null)
  box-shadow: 2px 2px 0px 0 lightgray;
 }
  
+.radioicon {
+ width : 22px;
+ height : 22px;
+ cursor: pointer;
+ /*margin: 3px 2px;*/
+ margin: 3px 2px;
+ padding: 3px 4px;
+/* box-shadow: 2px 2px 0px 0 lightgray;*/
+}
+
 .select  {
  margin: 3px 2px; 
 /* margin: 3px 3px 0px 0px;*/
@@ -175,6 +185,9 @@ const radioref = ref(null)
 }
 
 .icon.mouse-down{
+ box-shadow: -2px -2px 0px 0px lightgray;
+}
+.radioicon.mouse-down{
  box-shadow: -2px -2px 0px 0px lightgray;
 }
 
