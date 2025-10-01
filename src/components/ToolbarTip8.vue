@@ -32,7 +32,7 @@ import ToolbarItemSelect7  from './ToolbarItemSelect7.vue'
 
 
 
-const props = defineProps(['toolbar_define' ]);
+const props = defineProps(['toolbar_define' ,'icon_flat_mode']);
 
 
 const emit = defineEmits(['toolbarItemClick', 
@@ -89,6 +89,8 @@ onMounted(() => {
 
 const radioref = ref(null)
 
+//const icon_flat_mode = false;
+
 
 </script>
 
@@ -100,7 +102,7 @@ const radioref = ref(null)
      <ToolbarItem8  v-if="!item.select && !item.radio" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                    @toolbarItemClick="click_handler"   
 	                    @toolbarItemToggle="toggle_handler"  > 
-        <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle  }"/>
+		    <component v-bind:is="item.icon"   :class="{ icon : !props.icon_flat_mode , icon_flat : props.icon_flat_mode, leftspace : item.leftspace, toggle : item.toggle  }"/>
      </ToolbarItem8>
      <ToolbarItemRadio8  v-if="!item.select && item.radio" ref="radioref" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                    @toolbarItemClick="click_handler"   
@@ -148,6 +150,16 @@ const radioref = ref(null)
  box-shadow: 2px 2px 0px 0 lightgray;
 }
  
+.icon_flat {
+ width : 22px;
+ height : 22px;
+ cursor: pointer;
+ /*margin: 3px 2px;*/
+ margin: 3px 2px;
+ padding: 3px 4px;
+ /*box-shadow: 2px 2px 0px 0 lightgray;*/
+}
+
 .radioicon {
  width : 22px;
  height : 22px;
@@ -187,6 +199,10 @@ const radioref = ref(null)
 .icon.mouse-down{
  box-shadow: -2px -2px 0px 0px lightgray;
 }
+.icon_flat.mouse-down{
+ box-shadow: -2px -2px 0px 0px lightgray;
+}
+
 .radioicon.mouse-down{
  box-shadow: -2px -2px 0px 0px lightgray;
 }

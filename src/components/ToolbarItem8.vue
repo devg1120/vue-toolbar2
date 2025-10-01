@@ -19,7 +19,10 @@ function item_toggle_switch(e, state) {
 }
 
 onMounted(() => {
-     const icons = item.value.querySelectorAll(".icon")
+     let icons = item.value.querySelectorAll(".icon")
+     if (icons.length == 0) {
+         icons = item.value.querySelectorAll(".icon_flat")
+     }
      icons.forEach((icon) => {
         // マウスオーバーで表示する
        icon.addEventListener("mouseover", function () {

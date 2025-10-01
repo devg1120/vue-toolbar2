@@ -39,6 +39,10 @@ import Select from "./components/Select.vue";
 import SelectColor from "./components/SelectColor.vue";
 import SelectEmoji from "./components/SelectEmoji.vue";
 
+// https://tabler.io/icons
+import { IconHome } from '@tabler/icons-vue';
+import { IconMoodSmileBeam } from '@tabler/icons-vue';
+
 /*
 function clickA( data ) {
 
@@ -249,6 +253,14 @@ const toolbar_define = [
   tooltip : "B         OK",
 },
 
+{ icon : IconHome ,
+  name : "IconHome",
+  tooltip : "B         OK",
+},
+{ icon : IconMoodSmileBeam ,
+  name : "IconMoodSmileBeam",
+  tooltip : "B         OK",
+},
 
 /*
   <ArrowsPointingOutIcon class="icon" />
@@ -346,6 +358,15 @@ function toolbarItemRadio(radio_name, radio_index,  name, state) {
 <div>
 	<p> "ToolbarTip8" radio button</p>
   <ToolbarTip8 :toolbar_define="toolbar_define"  
+		                                 @toolbarItemClick="toolbarItemClick"  
+		                                 @toolbarItemToggle="toolbarItemToggle"  
+		                                 @toolbarItemSelect="toolbarItemSelect"  
+		                                 @toolbarItemRadio="toolbarItemRadio"
+						 />
+</div>
+<div>
+	<p> "ToolbarTip8" radio button icon_flat</p>
+  <ToolbarTip8 :toolbar_define="toolbar_define"  :icon_flat_mode="true"
 		                                 @toolbarItemClick="toolbarItemClick"  
 		                                 @toolbarItemToggle="toolbarItemToggle"  
 		                                 @toolbarItemSelect="toolbarItemSelect"  
